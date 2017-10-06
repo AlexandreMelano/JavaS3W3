@@ -25,11 +25,13 @@ public class JavaS3W3 {
     
     public static boolean checkAreaCode(String areaCode)
     {//first number can be 2-9, then anynumber 2 times
-        return areaCode.matches("[2-9]//d[2]");
+        return areaCode.matches("[2-9]\\d[2]");
     }//end of checkAreaCode
     
     public static boolean checkPhoneNumber(String phoneNum)
-    {   // this gets validates the full phone number with area code
-        return phoneNum.matches("[2-9]//d[2][2-9]//d[2]//d[4]");
+    {   // this gets validates the full phone number with area code, 
+        //s? allows for an optional space
+        
+        return phoneNum.matches("\\(?[2-9]\\d{2}//?)[-.\\s]?[2-9]\\d{2}[-.\\s]?\\d{4}");
     }//end of checkPhoneNumber
 }//end of class
